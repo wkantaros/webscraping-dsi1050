@@ -24,6 +24,16 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 
+// if deployed on heroku server, use https instead of http
+if (process.env.NODE_ENV === 'production') {
+    app.use((req, res, next) => {
+        if (req.header('x-forwarded-proto') !== 'https')
+            res.redirect(`https://${req.header('host')}${req.url}`);
+        else
+            next();
+    });
+}
+
 // for session
 app.use(session({
     secret: process.env.APP_SECRET,
