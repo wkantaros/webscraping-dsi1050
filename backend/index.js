@@ -45,8 +45,8 @@ app.get('/', (req, res) => {
     res.redirect('/login');
 });
 
-const USERNAME = 'brunonia';
-const PASSWORD = 'Bluenforever123!';
+const USERNAME = process.env.USERNAME;
+const PASSWORD = process.env.PASSWORD;
 const SECOND = 1000;
 
 // Login page for host
@@ -72,7 +72,7 @@ app.post('/login', (req, res) => {
         res.end();
     } else {
         req.session.loggedin = true;
-        req.session.cookie.maxAge = 60 * SECOND
+        req.session.cookie.maxAge = 30 * SECOND
         res.json({
             isValid: true,
             message: 'valid arguments'
