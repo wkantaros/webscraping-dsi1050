@@ -3,7 +3,7 @@ const API_URL = window.location.href.replace(/secure-page$/gi, 'genword');
 let jsbtn = document.getElementById('js-render-btn');
 
 jsbtn.addEventListener("click", () => {
-    fetch('http://localhost:8080/genword')
+    fetch(API_URL)
     .then(res => res.json())
     .then(data => {
         console.log(data);
