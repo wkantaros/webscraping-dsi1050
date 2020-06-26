@@ -4,7 +4,7 @@ const http = require('http');
 const request = require('request');
 const cors = require('cors');
 const Joi = require('@hapi/joi');
-require ('dotenv').config('../.env')
+require ('dotenv').config('../.env');
 
 var bodyParser = require('body-parser');
 var session = require('express-session');
@@ -26,8 +26,7 @@ app.set('view engine', 'ejs');
 
 // for session
 app.use(session({
-    // secret: process.env.APP_SECRET,
-    secret: 'test1234',
+    secret: process.env.APP_SECRET,
     resave: true,
     saveUninitialized: true
 }));
@@ -46,8 +45,9 @@ app.get('/', (req, res) => {
     res.redirect('/login');
 });
 
-const USERNAME = 'brunonia'
-const PASSWORD = 'Bluenforever123!'
+const USERNAME = 'brunonia';
+const PASSWORD = 'Bluenforever123!';
+const SECOND = 1000;
 
 // Login page for host
 app.get('/login', (req, res) => {
@@ -72,6 +72,7 @@ app.post('/login', (req, res) => {
         res.end();
     } else {
         req.session.loggedin = true;
+        req.session.cookie.maxAge = 60 * SECOND
         res.json({
             isValid: true,
             message: 'valid arguments'
