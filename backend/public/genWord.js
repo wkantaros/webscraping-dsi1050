@@ -1,4 +1,4 @@
-const API_URL = window.location.href.replace(/secure-page$/gi, 'genword');
+const API_URL = '/genword';
 
 let jsbtn = document.getElementById('js-render-btn');
 

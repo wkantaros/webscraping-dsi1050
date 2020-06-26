@@ -34,7 +34,7 @@ form.addEventListener('submit', (event) => {
                 form.appendChild(node);
             }
         } else {
-            window.location.href = `/secure-page`;
+            window.location.href = '/hidden-page';
         }
     })
 });

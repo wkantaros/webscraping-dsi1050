@@ -72,7 +72,7 @@ app.post('/login', (req, res) => {
         res.end();
     } else {
         req.session.loggedin = true;
-        req.session.cookie.maxAge = 30 * SECOND
+        req.session.cookie.maxAge = 30 * SECOND;
         res.json({
             isValid: true,
             message: 'valid arguments'
@@ -84,9 +84,9 @@ const isValidUsernameAndPassword = (username, password) => username === USERNAME
 
 
 // user succesfully logged in
-app.get('/secure-page', (req, res) => {
+app.get('/hidden-page', (req, res) => {
     if (req.session.loggedin){
-        res.render('pages/secure');
+        res.render('pages/hidden');
     } else {
         res.redirect('/')
     }
