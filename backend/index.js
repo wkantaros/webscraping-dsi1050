@@ -26,7 +26,8 @@ app.set('view engine', 'ejs');
 
 // for session
 app.use(session({
-    secret: process.env.APP_SECRET,
+    // secret: process.env.APP_SECRET,
+    secret: 'test1234',
     resave: true,
     saveUninitialized: true
 }));
