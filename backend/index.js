@@ -72,7 +72,6 @@ app.post('/login', (req, res) => {
         res.end();
     } else {
         req.session.loggedin = true;
-        req.session.cookie.maxAge = 30 * SECOND;
         res.json({
             isValid: true,
             message: 'valid arguments'
