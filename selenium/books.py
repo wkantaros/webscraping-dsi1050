@@ -31,6 +31,7 @@ def scrape_page(driver):
 
 
 def scrape_all_pages(URL, highlight_just_first_page=False):
+    # to install chromedriver, see https://chromedriver.chromium.org/downloads
     driver = webdriver.Chrome('./chromedriver')
     driver.get(URL)
     next_buttons = driver.find_elements_by_css_selector('.next a')

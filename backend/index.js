@@ -4,7 +4,7 @@ const http = require('http');
 const request = require('request');
 const cors = require('cors');
 const Joi = require('@hapi/joi');
-require ('dotenv').config()
+require ('dotenv').config('../.env')
 
 var bodyParser = require('body-parser');
 var session = require('express-session');
