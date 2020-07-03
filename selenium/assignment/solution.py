@@ -7,8 +7,10 @@ import random
 class Crawler:
     def __init__(self, is_headless=False):
         # for more info on arguments, see https://peter.sh/experiments/chromium-command-line-switches/
+        # PROXY = '161.202.226.194:8123'
         options = webdriver.ChromeOptions()
         options.add_argument('--incognito')
+        # options.add_argument('--proxy-server=%s' % PROXY)
         if is_headless:
             options.add_argument('--headless')
             # options.add_argument('headless')
@@ -54,14 +56,22 @@ class Crawler:
 
     def search_amazon(self, search_input):
         self.driver.get(self.amazon_url)
-        self.__sleep_random_time_interval()
+        # self.__sleep_random_time_interval()
         searchbar = self.driver.find_element_by_css_selector('#twotabsearchtextbox')
         submit = self.driver.find_element_by_css_selector('#nav-search .nav-right .nav-input[type=submit]')
-        self.__sleep_random_time_interval()
+        # self.__sleep_random_time_interval()
         searchbar.send_keys(search_input)
-        self.__sleep_random_time_interval()
+        # self.__sleep_random_time_interval()
         submit.click()
-        self.__sleep_random_time_interval()
+        # self.__sleep_random_time_interval()
+        # first_product_url = self.driver.find_element_by_css_selector('.a-link-normal').get_attribute('href')
+        first_product_price_element = self.driver.find_element_by_css_selector('.a-price')
+        first_product_url = first_product_price_element.find_element_by_xpath('./..').get_attribute('href')
+        # self.__sleep_random_time_interval()
+        self.driver.get(first_product_url)
+        price = self.driver.find_element_by_id('priceblock_ourprice').text
+        product_name = self.driver.find_element_by_id('productTitle').text.strip()
+        print('Product name: {}, {}'.format(product_name, price))
 
     def run(self):
         self.set_static_and_dynamic_words()
@@ -69,7 +79,7 @@ class Crawler:
         self.search_amazon(self.dynamic_word)
 
     def __sleep_random_time_interval(self):
-        time.sleep(random.randint(1,5))
+        time.sleep(random.randint(1,3))
 
     
 
