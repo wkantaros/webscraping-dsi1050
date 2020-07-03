@@ -31,4 +31,10 @@ Selenium was created as a tool to help developers automate testing on the intern
 - if in database, pull out price of good
 - if already in database, report back to user and let know if price  -->
 - discuss importance of proxy farms, why we'll be using those
+
+>"Websites are cabaple of tracking your IP information, pages you visit with the same IP, your user agent information, your request frequencies and many other metrics. You can think IP as of your internet identity and any systematic requests sent from the same IP to a website can be easily detected by anti-webscraper tools and you will get IP-banned.
+>Our robot should be imitating regular human internet surfing behaviour so that it will not get noticed or cause any suspicion to any website. To make it more clear: Imagine yourself visiting pages of a website while using a free VPN service each time you change the page. Wait for a random amount of time in between two pages and also copy/paste the data from the website."
+
+
 - cache data to database
+
