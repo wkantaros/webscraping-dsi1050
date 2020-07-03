@@ -98,7 +98,7 @@ app.get('/hidden-page', (req, res) => {
 
 // generates js-based word
 app.get('/genword', (req, res) => {
-    let keywords = 'projector pokemon iphone fitbit ipad ipod bananas apples nintendo pillow phone tv t-rex bus crayons water bottle pens pencils dog cornflakes alexa earbuds monitor socks sandals xylophone airpods ssd tablet chromebook backpack'.split(' ');
+    let keywords = 'projector pokemon beats fitbit apples nintendo pillow phone tv t-rex bus crayons water bottle pens pencils dog cornflakes alexa earbuds monitor socks sandals xylophone kindle ssd tablet chromebook backpack'.split(' ');
     word = keywords[Math.floor(Math.random() * keywords.length)];
     // if we wanted infinite words we could do so using this, but some of the words aren't particularly searchable
     // request('https://random-word-api.herokuapp.com/word?number=1', (err, resp, body) => console.log(body));
