@@ -2,7 +2,7 @@
 
 ## About
 
-The purpose of this assignment is to work with python web scraping tools in an applicable way. To do so, we will be using [Selenium](https://www.selenium.dev/documentation/en/) to build a virtual crawler that 1) logs into and scrapes the product names from a given website and 2) searches for that product on ebay and returns it to the user.
+The purpose of this assignment is to work with python web scraping tools in an applicable way. To do so, we will be using [Selenium](https://www.selenium.dev/documentation/en/) to build a virtual crawler that 1) logs into and scrapes the product names from a given website and 2) searches for that product on ebay & amazon and returns it to the user.
 
 
 ### A brief reintroduction to the internet
@@ -26,10 +26,12 @@ Selenium was created as a tool to help developers automate testing on the intern
 
 - playing around with inspector
 - going through authentication in driver
-- going to be searching for lowest price on ebay (on first page)
+- going to be searching for price on ebay
+- going to be searching for price on amazon
 <!-- - if not yet in database, add to database
 - if in database, pull out price of good
-- if already in database, report back to user and let know if price  -->
+- if already in database, report back to user and let know if price 
+- increased or decreased since the last search -->
 - discuss importance of proxy farms, why we'll be using those
 
 >"Websites are cabaple of tracking your IP information, pages you visit with the same IP, your user agent information, your request frequencies and many other metrics. You can think IP as of your internet identity and any systematic requests sent from the same IP to a website can be easily detected by anti-webscraper tools and you will get IP-banned.
@@ -49,5 +51,10 @@ HTTP_FORWARDED = ...
 
 transparent proxies arent great 
 
-- cache data to database
 
+
+- Get a persistent mongdodb database somewhere
+- finish that
+- find outline for those
+- finish outline for outline.md
+start brainstorming a 
