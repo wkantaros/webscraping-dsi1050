@@ -6,12 +6,13 @@ URL = 'http://books.toscrape.com/'
 
 
 def scrape_page(driver):
+    # get the titles, prices, ratings and availabilities for each book through css selection
     titles = [ web_element.text for web_element in driver.find_elements_by_css_selector('.product_pod > h3 > a') ]
     prices = [ web_element.text for web_element in driver.find_elements_by_css_selector('.product_pod .price_color') ]
     ratings = [ web_element.get_attribute('class').split()[1] for web_element in driver.find_elements_by_css_selector('.product_pod .star-rating')]
     avalabilities = [ web_element.text.strip() for web_element in driver.find_elements_by_css_selector('.availability')]
 
-    # highlight first selection of each
+    # highlight first selection of each (not necessary but helpful to show how to manipulate page)
     titleDivs = driver.find_elements_by_css_selector('.product_pod > h3 > a')
     priceDivs = driver.find_elements_by_css_selector('.product_pod .price_color')
     ratingDivs = driver.find_elements_by_css_selector('.product_pod .star-rating')
@@ -41,6 +42,7 @@ def scrape_all_pages(URL, highlight_just_first_page=False):
         while len(next_buttons) > 0:
             scrape_page(driver)
             next_page_url = next_buttons[0].get_attribute('href')
+            # go to next page (the link provided by the href)
             driver.get(next_page_url)
             next_buttons = driver.find_elements_by_css_selector('.next a')
 
